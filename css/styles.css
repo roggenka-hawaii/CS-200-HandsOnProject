@@ -129,6 +129,25 @@ footer a {
   text-decoration: none;
 }
 
+#number,
+#word,
+#sequence,
+#classic,
+#pattern {
+  background-color: #ffffff;
+  width: 90vw;
+  height: 35vw;
+  margin: 40px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  align-items: center;
+  font-size: 1.5em;
+}
+
 /* Media Query for Mobile Viewport */
 @media screen and (max-width: 599px), print {
   /* Mobile Viewport: Show mobile class, hide tab-desk */
