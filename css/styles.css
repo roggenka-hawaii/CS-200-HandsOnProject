@@ -19,11 +19,6 @@ img {
   display: block;
 }
 
-/* Hide tab-desk */
-.tab-desk {
-  display: none;
-}
-
 /* Style rules for header content */
 header {
   text-align: center;
@@ -129,12 +124,13 @@ footer a {
   text-decoration: none;
 }
 
+/* General style rules for game content box */
 #number,
 #word,
 #sequence,
 #classic,
 #pattern {
-  background-color: #ffffff;
+  background-color: #baecf9;
   width: 90vw;
   height: 35vw;
   margin: 40px auto;
@@ -145,7 +141,9 @@ footer a {
   border-radius: 10px;
   border: 2px solid #000000;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
 /* Media Query for Mobile Viewport */
