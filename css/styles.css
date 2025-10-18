@@ -185,9 +185,75 @@ footer a:hover {
   color: #fff;
 }
 
-#number,
-#word,
-#pattern,
-#sequence,
-#classic {
+/* Game Container */
+.game-container {
+  transform: translateX(350px);
+  background: rgba(29, 47, 68, 0.85);
+  border: 2px solid rgba(158, 178, 193, 0.2);
+  border-radius: 16px;
+  max-width: 1000px;
+  min-height: 300px;
+  margin: 20px auto;
+  padding: 40px 30px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.game-content {
+  font-family: "Lora", serif;
+  font-size: 2em;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+#displayNumber,
+#displayWord {
+  padding-top: 25px;
+  padding-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  background-color: #4d5965;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #9eb2c1;
+  color: #000;
+}
+
+.game-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Input */
+input {
+  background-color: #2b3a4b;
+  color: #fff;
+  border: 1px solid #4d5965;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1em;
+  width: 60%;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border-color: #9eb2c1;
+  box-shadow: 0 0 8px rgba(158, 178, 193, 0.4);
 }

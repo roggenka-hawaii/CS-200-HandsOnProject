@@ -7,25 +7,78 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getWord(wordlist) {}
+async function loadWords() {
+  const response = await fetch("wordList.txt");
+  const text = await response.text();
+  const loadedWords = text.split(/\r?\n/).map((w) => w.trim().toLowerCase());
+  return loadedWords;
+}
 
-function startRound(word, wordlist) {
-  word = getWord(wordlist);
-  wordDisplayElement.innerHTML = word;
+function getWord(wordlist, loadedWords) {
+  const useOldWord = Math.random() < 0.5;
+  if (useOldWord && wordlist.length > 0) {
+    return wordlist[randomIntFromInterval(0, wordlist.length - 1)];
+  } else {
+    return loadedWords[randomIntFromInterval(0, loadedWords.length - 1)];
+  }
+}
+
+function startRound(wordlist, loadedWords, word) {
+  wordDisplayElement.textContent = word;
   wordDisplayElement.style.display = "inline";
   seenButtonElement.style.display = "inline";
   newButtonElement.style.display = "inline";
   restartButtonElement.style.display = "none";
-  wordlist.push(word);
   return wordlist;
 }
 
 let failed = false;
-let word = "hello";
 let score = 0;
 let wordlist = [];
 
 restartButtonElement.style.display = "none";
-wordlist = startRound(word, wordlist);
 
-seenButtonElement.addEventListener("click", () => {});
+loadWords().then((loadedWords) => {
+  let word = getWord(wordlist, loadedWords);
+  wordlist = startRound(wordlist, loadedWords, word);
+
+  seenButtonElement.addEventListener("click", () => {
+    if (wordlist.includes(word)) {
+      score += 1;
+      word = getWord(wordlist, loadedWords);
+      wordlist = startRound(wordlist, loadedWords, word);
+    } else {
+      failed = true;
+      wordDisplayElement.style.display = "inline";
+      wordDisplayElement.innerHTML =
+        "Game Over, your score is " + score.toString() + "!";
+      seenButtonElement.style.display = "none";
+      newButtonElement.style.display = "none";
+      restartButtonElement.style.display = "inline";
+    }
+  });
+
+  newButtonElement.addEventListener("click", () => {
+    if (!wordlist.includes(word)) {
+      score += 1;
+      wordlist.push(word);
+      word = getWord(wordlist, loadedWords);
+      wordlist = startRound(wordlist, loadedWords, word);
+    } else {
+      failed = true;
+      wordDisplayElement.style.display = "inline";
+      wordDisplayElement.innerHTML =
+        "Game Over, your score is " + score.toString() + "!";
+      seenButtonElement.style.display = "none";
+      newButtonElement.style.display = "none";
+      restartButtonElement.style.display = "inline";
+    }
+  });
+  restartButtonElement.addEventListener("click", () => {
+    failed = false;
+    score = 0;
+    wordlist = [];
+    word = getWord(wordlist, loadedWords);
+    wordlist = startRound(wordlist, loadedWords, word);
+  });
+});

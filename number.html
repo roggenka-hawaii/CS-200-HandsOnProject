@@ -24,12 +24,17 @@
       </ul>
     </nav>
     <main>
-      <div id="number">
-        <p id="displayNumber"></p>
-        <p><button id="readyButton">Ready</button></p>
-        <input id="inputField" />
-        <button id="inputButton">Enter</button>
-        <button id="restartButton">Restart</button>
+      <div class="game-container">
+        <div class="game-content" id="number">
+          <p id="displayNumber"></p>
+          <p><button id="readyButton">Ready</button></p>
+          <input id="inputField" placeholder="Enter number" />
+          <div class="game-buttons">
+            <button id="inputButton">Enter</button>
+            <button id="restartButton">Restart</button>
+          </div>
+          <p id="displayScore"></p>
+        </div>
       </div>
     </main>
     <footer>

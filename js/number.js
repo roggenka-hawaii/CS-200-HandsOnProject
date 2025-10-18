@@ -53,7 +53,7 @@ inputButtonElement.addEventListener("click", () => {
     failed = true;
     numberDisplayElement.style.display = "inline";
     numberDisplayElement.innerHTML =
-      "Game Over, your score is " + (numberLength - 2).toString();
+      "Game Over, your score is " + (numberLength - 2).toString() + "!";
     readyButtonElement.style.display = "none";
     inputFieldElement.style.display = "none";
     inputButtonElement.style.display = "none";
