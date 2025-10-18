@@ -14,10 +14,14 @@ async function loadWords() {
   return loadedWords;
 }
 
-function getWord(wordlist, loadedWords) {
+function getWord(wordlist, loadedWords, word) {
   const useOldWord = Math.random() < 0.5;
-  if (useOldWord && wordlist.length > 0) {
-    return wordlist[randomIntFromInterval(0, wordlist.length - 1)];
+  if (useOldWord && wordlist.length > 2) {
+    let chosenWord = wordlist[randomIntFromInterval(0, wordlist.length - 1)];
+    while (chosenWord === word) {
+      chosenWord = wordlist[randomIntFromInterval(0, wordlist.length - 1)];
+    }
+    return chosenWord;
   } else {
     return loadedWords[randomIntFromInterval(0, loadedWords.length - 1)];
   }
@@ -39,13 +43,13 @@ let wordlist = [];
 restartButtonElement.style.display = "none";
 
 loadWords().then((loadedWords) => {
-  let word = getWord(wordlist, loadedWords);
+  let word = getWord(wordlist, loadedWords, "");
   wordlist = startRound(wordlist, loadedWords, word);
 
   seenButtonElement.addEventListener("click", () => {
     if (wordlist.includes(word)) {
       score += 1;
-      word = getWord(wordlist, loadedWords);
+      word = getWord(wordlist, loadedWords, word);
       wordlist = startRound(wordlist, loadedWords, word);
     } else {
       failed = true;
@@ -62,7 +66,7 @@ loadWords().then((loadedWords) => {
     if (!wordlist.includes(word)) {
       score += 1;
       wordlist.push(word);
-      word = getWord(wordlist, loadedWords);
+      word = getWord(wordlist, loadedWords, word);
       wordlist = startRound(wordlist, loadedWords, word);
     } else {
       failed = true;
@@ -78,7 +82,7 @@ loadWords().then((loadedWords) => {
     failed = false;
     score = 0;
     wordlist = [];
-    word = getWord(wordlist, loadedWords);
+    word = getWord(wordlist, loadedWords, "");
     wordlist = startRound(wordlist, loadedWords, word);
   });
 });
