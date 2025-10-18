@@ -2,19 +2,12 @@ const wordDisplayElement = document.querySelector("#displayWord");
 const seenButtonElement = document.querySelector("#seenButton");
 const newButtonElement = document.querySelector("#newButton");
 const restartButtonElement = document.querySelector("#restartButton");
-const wordListData = require();
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getWord(wordlist) {
-  let knownWord = randomIntFromInterval(0, 1);
-  if (knownWord) {
-    return wordlist[randomIntFromInterval(0, length(wordlist))];
-  } else {
-  }
-}
+function getWord(wordlist) {}
 
 function startRound(word, wordlist) {
   word = getWord(wordlist);
