@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="js/sequence.js" type="module"></script>
   </head>
   <body>
     <header>
@@ -26,7 +25,19 @@
     <main>
       <div class="game-container">
         <div class="game-content">
-          <p>make a grid</p>
+          <div class="sequence-grid">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+          </div>
+          <button id="startBtn">Start Game</button>
+          <p id="status"></p>
         </div>
       </div>
     </main>
@@ -34,5 +45,6 @@
       <p>&copy; Copyright 2025. All Rights Reserved.</p>
       <p>Email: <a href="mailto:roggenka@hawaii.edu">roggenka@hawaii.edu</a></p>
     </footer>
+    <script src="js/sequence.js" type="module"></script>
   </body>
 </html>

@@ -17,6 +17,7 @@ p {
   border: 0;
   box-sizing: border-box;
   font-family: "BHH Sans Hegarty", sans-serif;
+  overflow-x: hidden;
 }
 
 /* Add scroll bar */
@@ -31,6 +32,7 @@ html {
   z-index: -1;
   position: absolute;
   transform: translateX(100px);
+  overflow-x: hidden;
 }
 
 /* Base layout */
@@ -39,6 +41,10 @@ body {
   color: #fff;
   overflow-x: hidden;
   padding-top: 70px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
@@ -173,10 +179,14 @@ main {
 /* Footer */
 footer {
   text-align: center;
-  margin-top: 0;
+  margin-top: auto;
   padding: 20px 0;
   font-size: 0.9em;
   color: #ccc;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000;
 }
 
 footer a {
@@ -197,7 +207,7 @@ footer a:hover {
   border: 2px solid rgba(158, 178, 193, 0.2);
   border-radius: 16px;
   max-width: 1000px;
-  min-height: 300px;
+  min-height: 500px;
   margin: 20px auto;
   padding: 40px 30px;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
@@ -220,6 +230,7 @@ footer a:hover {
 #displayNumber,
 #displayWord {
   padding-top: 12px;
+  user-select: none;
 }
 
 /* Buttons */
@@ -267,10 +278,56 @@ input:focus {
   box-shadow: 0 0 8px rgba(158, 178, 193, 0.4);
 }
 
+/* Sequence Memory 3x3 Grid and Pattern Memory 4x4 Grid */
+.sequence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 15px;
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 75px);
+  grid-template-rows: repeat(4, 75px);
+  gap: 10px;
+}
+
+.sequence-grid .cell {
+  width: 100px;
+  height: 100px;
+  background: #121e2c;
+  border: 2px solid #4d5965;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.pattern-grid .cell {
+  width: 75px;
+  height: 75px;
+  background: #121e2c;
+  border: 2px solid #4d5965;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* Highlight flash */
+.flash,
+.pattern-selected {
+  background-color: #9eb2c1 !important;
+  border-color: #ffffff !important;
+}
+
 /* Media Queries */
 
 /* Tablet and small Laptop */
 @media (max-width: 1250px) {
+  body {
+    overflow-x: hidden;
+  }
+
   nav ul {
     gap: 20px;
   }
@@ -307,6 +364,10 @@ input:focus {
 
 /* Mobile */
 @media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
   nav ul li {
     display: none;
   }
@@ -330,7 +391,7 @@ input:focus {
 
   .game-container {
     transform: none;
-    width: 95%;
+    width: 90%;
     padding: 25px 15px;
     border-radius: 12px;
   }
