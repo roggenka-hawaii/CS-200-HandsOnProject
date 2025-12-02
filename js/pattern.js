@@ -26,6 +26,9 @@ patternStartBtn.addEventListener("click", () => {
   pattern = [];
   patternStatus.textContent = "Watch";
   score = 0;
+  pCells.forEach((cell) => {
+    cell.classList.remove("pattern-selected");
+  });
   nextPatternRound();
 });
 
@@ -33,7 +36,6 @@ patternStartBtn.addEventListener("click", () => {
 function nextPatternRound() {
   playerPattern = [];
   patternAccepting = false;
-  pWrapper.classList.add("no-hover");
 
   // Add between 5 and 10 squares
   let newSquares = randomIntFromInterval(5, 10);
@@ -67,7 +69,6 @@ async function showPattern(patternArray) {
 
   // Let the player input pattern
   patternAccepting = true;
-  pWrapper.classList.remove("no-hover");
   patternStatus.textContent = "Repeat";
 }
 
@@ -92,7 +93,6 @@ pCells.forEach((cell) => {
       patternStatus.textContent =
         "Wrong! Game over, your score is " + score.toString() + "!";
       patternAccepting = false;
-      pWrapper.classList.add("no-hover");
 
       // Clear selected cells back to normal color after 1 second
       setTimeout(() => {
@@ -106,7 +106,6 @@ pCells.forEach((cell) => {
     if (playerPattern.length === pattern.length) {
       patternStatus.textContent = "Correct! Watch";
       patternAccepting = false;
-      pWrapper.classList.add("no-hover");
 
       // Clear selected cells back to normal color before next pattern
       setTimeout(() => {

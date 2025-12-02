@@ -17,7 +17,6 @@ p {
   border: 0;
   box-sizing: border-box;
   font-family: "BHH Sans Hegarty", sans-serif;
-  overflow-x: hidden;
 }
 
 /* Add scroll bar */
@@ -320,10 +319,16 @@ input:focus {
   border-color: #ffffff !important;
 }
 
+/* About Page */
+#about {
+  transform: none;
+}
+
 /* Media Queries */
 
 /* Tablet and small Laptop */
 @media (max-width: 1250px) {
+  html,
   body {
     overflow-x: hidden;
   }
@@ -364,6 +369,11 @@ input:focus {
 
 /* Mobile */
 @media (max-width: 600px) {
+  .bgimg {
+    transform: none;
+    width: 100vw;
+  }
+  html,
   body {
     overflow-x: hidden;
   }
