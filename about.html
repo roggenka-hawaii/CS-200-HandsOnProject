@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+
   <body>
     <header>
-      <h1>About Page</h1>
+      <h1>About</h1>
     </header>
+
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -17,19 +19,64 @@
         <li><a href="word.html">Word Memory</a></li>
         <li><a href="sequence.html">Sequence Memory</a></li>
         <li><a href="pattern.html">Pattern Memory</a></li>
-        <li>
-          <a href="about.html">About</a>
-        </li>
+        <li><a href="about.html" class="active">About</a></li>
       </ul>
     </nav>
+
     <main id="about">
-      <h2>Needed Features:</h2>
-      <p>Paragraphs explaining why memory games are good</p>
-      <p>Embedded Youtube video on why memory games are good</p>
-      <p>Table explaining each game</p>
-      <p>Contact form for new game requests and questions</p>
-      <p>Use of Bootstrap</p>
+      <div class="about-sections">
+        <section class="about-left">
+          <h2>Why Memory Games Are Beneficial</h2>
+          <h3>
+            Memory games help improve short- and long-term memory by challenging
+            your brain to store and process information quickly. Regular
+            practice strengthens neural pathways and improves focus,
+            recognition, and recall.
+          </h3>
+
+          <h3>
+            Studies also show that memory training can boost problem solving
+            skills, attention span, and overall cognitive performance. The best
+            part is that these games are fun, easy to understand, fast, and
+            suitable for people of all ages.
+          </h3>
+
+          <h3>
+            For older people memory games can help keeping your mind active and
+            engaged and prevent early memory problems and dementia. At the same
+            time these games can be a relaxing activity and provide a fun and
+            low-stress challenge.
+          </h3>
+
+          <h3>
+            For younger people on the other hand, engaging with memory games
+            regularly can improve concentration and train your mind to stay
+            focused on a task for a longer period of time. This can enhance
+            performance at school and work.
+          </h3>
+        </section>
+        <section class="about-right">
+          <h2>Test Your Memory</h2>
+          <p>Here is a short youtube video to test your memory.</p>
+          <p>See if the games improved your memory for yourself!</p>
+
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/YZUiJLi7zow"
+              title="YouTube video"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+      </div>
+
+      <h2>Our Games</h2>
+      <iframe src="bootstrap-table.html" class="table-frame"></iframe>
+
+      <h2>Contact Form</h2>
+      <iframe src="bootstrap-form.html" class="form-frame"></iframe>
     </main>
+
     <footer>
       <p>&copy; Copyright 2025. All Rights Reserved.</p>
       <p>Email: <a href="mailto:roggenka@hawaii.edu">roggenka@hawaii.edu</a></p>
